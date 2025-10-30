@@ -29,13 +29,13 @@ def get_single_certifs(interprete: str):
                 continue
 
             certif = occurence.find("div", class_={"certif":True})
-            certif_text = certif.get_text(strip=True) if certif is not None else ""
+            certif_text = certif.get_text(strip=True).lower() if certif is not None else ""
 
-            if "Or" in certif_text:
+            if "or" in certif_text:
                 or_single +=1
-            elif "Diamant" in certif_text:
+            elif "diamant" in certif_text:
                     diamant_single += 1
-            elif "Platine" in certif_text:
+            elif "platine" in certif_text:
                     platine_single += 1
 
         is_next_page = soup.find("div", class_={"next":True})
